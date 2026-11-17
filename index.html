@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cyber Halloween interaktif oleh Fahril Moonstar">
+  <title>Cyber Halloween — Fahril Moonstar</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===== RESET ===== */
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* ===== VARIABEL ===== */
+    :root {
+      --hitam-cyber: #070A18;
+      --biru-neon: #00F0FF;
+      --magenta-neon: #FF00C8;
+      --ungu-neon: #7B2FFD;
+      --putih-cyber: #E0F7FF;
+      --font: 'Orbitron', system-ui, sans-serif;
+    }
+
+    /* ===== BASE ===== */
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: var(--font);
+      background: linear-gradient(180deg, var(--hitam-cyber) 0%, #0B1430 55%, #101B40 100%);
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--putih-cyber);
+      padding: 2rem 1rem;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Efek garis scan cyberpunk */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(
+        transparent,
+        transparent 2px,
+        rgba(0, 240, 255, 0.04) 2px,
+        rgba(0, 240, 255, 0.04) 4px
+      );
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* ===== PARTIKEL ===== */
+    .partikel {
+      position: fixed;
+      width: 3px;
+      height: 3px;
+      background: var(--biru-neon);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--biru-neon);
+      animation: jatuh linear infinite;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    @keyframes jatuh {
+      0%   { transform: translateY(-10vh); opacity: 0; }
+      10%  { opacity: 1; }
+      90%  { opacity: 1; }
+      100% { transform: translateY(110vh); opacity: 0; }
+    }
+
+    /* ===== LABA-LABA ===== */
+    .laba-laba {
+      position: fixed;
+      top: 20px;
+      left: 10%;
+      font-size: 2rem;
+      filter: drop-shadow(0 0 10px var(--magenta-neon));
+      animation: ayun 3s ease-in-out infinite;
+      z-index: 5;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    @keyframes ayun {
+      0%, 100% { transform: rotate(-10deg); }
+      50%      { transform: rotate(10deg); }
+    }
+
+    /* ===== CONTAINER ===== */
+    .container {
+      text-align: center;
+      z-index: 10;
+      border: 1px solid rgba(0, 240, 255, 0.35);
+      padding: 3rem 2rem;
+      border-radius: 20px;
+      background: rgba(7, 10, 24, 0.75);
+      box-shadow:
+        0 0 30px rgba(0, 240, 255, 0.25),
+        inset 0 0 30px rgba(255, 0, 200, 0.08);
+      backdrop-filter: blur(4px);
+      max-width: 640px;
+      width: 100%;
+    }
+
+    .jack {
+      font-size: 5rem;
+      margin-bottom: 1.5rem;
+      filter: drop-shadow(0 0 22px var(--magenta-neon));
+      user-select: none;
+      animation: glowPulse 2.5s ease-in-out infinite;
+    }
+
+    @keyframes glowPulse {
+      0%, 100% { filter: drop-shadow(0 0 18px var(--magenta-neon)); }
+      50%      { filter: drop-shadow(0 0 32px var(--magenta-neon)); }
+    }
+
+    h1 {
+      font-size: clamp(1.4rem, 5vw, 2.4rem);
+      margin-bottom: 2.5rem;
+      line-height: 1.4;
+      text-shadow: 0 0 12px var(--biru-neon);
+    }
+
+    /* ===== TOMBOL ===== */
+    .btn-group {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: relative;
+      min-height: 60px;
+    }
+
+    .btn {
+      padding: 1rem 2.5rem;
+      border: 1px solid transparent;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+      font-family: var(--font);
+      letter-spacing: 1px;
+      user-select: none;
+    }
+
+    .btn:focus-visible {
+      outline: 2px solid var(--putih-cyber);
+      outline-offset: 4px;
+    }
+
+    .btn-si {
+      background: linear-gradient(135deg, var(--biru-neon), var(--ungu-neon));
+      color: #050815;
+      box-shadow: 0 0 20px var(--biru-neon);
+    }
+
+    .btn-si:hover,
+    .btn-si:focus-visible {
+      transform: scale(1.08);
+      box-shadow: 0 0 35px var(--biru-neon);
+    }
+
+    .btn-tidak {
+      background: linear-gradient(135deg, var(--magenta-neon), #99007A);
+      color: white;
+      box-shadow: 0 0 18px var(--magenta-neon);
+      transition: transform 0.15s ease, box-shadow 0.25s ease;
+      will-change: transform;
+    }
+
+    /* ===== PESAN ===== */
+    .pesan {
+      margin-top: 2.5rem;
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      color: var(--biru-neon);
+      text-shadow: 0 0 10px var(--biru-neon);
+      display: none;
+      line-height: 1.5;
+    }
+
+    .pesan.tampil {
+      display: block;
+      animation: muncul 0.5s ease-out;
+    }
+
+    @keyframes muncul {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== CREDIT ===== */
+    .credit {
+      margin-top: 2rem;
+      font-size: 0.85rem;
+      color: var(--magenta-neon);
+      text-shadow: 0 0 6px var(--magenta-neon);
+      opacity: 0.85;
+    }
+
+    /* ===== BAYANGAN BAWAH ===== */
+    .bayangan {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 130px;
+      background: linear-gradient(0deg, rgba(7, 10, 24, 0.92) 0%, transparent 100%);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    /* ===== RESPONSIF ===== */
+    @media (max-width: 500px) {
+      .jack { font-size: 3.3rem; }
+      .btn-group { gap: 1rem; }
+      .btn { padding: 0.9rem 1.6rem; font-size: 1rem; }
+      .container { padding: 2rem 1.2rem; }
+      .laba-laba { font-size: 1.6rem; left: 6%; }
+    }
+
+    /* Hormati preferensi reduce motion */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="laba-laba" aria-hidden="true">🕷️</div>
+
+  <main class="container">
+    <div class="jack" aria-hidden="true">🎃</div>
+    <h1>Mau merayakan Cyber Halloween bersamaku? 🕷️</h1>
+
+    <div class="btn-group">
+      <button class="btn btn-si" id="btnSi" type="button">💠 Si</button>
+      <button class="btn btn-tidak" id="btnTidak" type="button">💜 Tidak</button>
+    </div>
+
+    <div class="pesan" id="pesanBox" role="status" aria-live="polite">
+      🎉 Yey! Selamat Cyber Halloween! Kita akan bersenang-senang di dunia cyber malam ini! 🕷️🎃
+    </div>
+
+    <p class="credit">Developed by Fahril Moonstar ✦ Cyberpunk 2026</p>
+  </main>
+
+  <div class="bayangan" aria-hidden="true"></div>
+
+  <script>
+    (function () {
+      'use strict';
+
+      const btnSi = document.getElementById('btnSi');
+      const btnTidak = document.getElementById('btnTidak');
+      const pesanBox = document.getElementById('pesanBox');
+
+      // ===== Tombol "Tidak" kabur saat kursor mendekat =====
+      let posisiX = 0;
+      let posisiY = 0;
+
+      function kaburTidak() {
+        const batas = 220;
+        // Pastikan tidak terlalu jauh dari posisi awal
+        posisiX = (Math.random() - 0.5) * batas;
+        posisiY = (Math.random() - 0.5) * 160;
+        btnTidak.style.transform = `translate(${posisiX}px, ${posisiY}px)`;
+      }
+
+      // Desktop: kabur saat hover
+      btnTidak.addEventListener('mouseenter', kaburTidak);
+
+      // Mobile: kabur saat disentuh
+      btnTidak.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        kaburTidak();
+      }, { passive: false });
+
+      // Jika tetap diklik (misal lewat keyboard), beri respon lucu
+      btnTidak.addEventListener('click', () => {
+        pesanBox.textContent = '💜 Tidak apa-apa, tapi Cyber Halloween tetap seru kalau kamu ikut! 🕷️';
+        pesanBox.classList.add('tampil');
+      });
+
+      // ===== Tombol "Si" =====
+      btnSi.addEventListener('click', () => {
+        pesanBox.textContent = '🎉 Yey! Selamat Cyber Halloween! Kita akan bersenang-senang di dunia cyber malam ini! 🕷️🎃';
+        pesanBox.classList.add('tampil');
+      });
+
+      // ===== Partikel cyber =====
+      function buatPartikel() {
+        const p = document.createElement('div');
+        p.classList.add('partikel');
+        p.style.left = Math.random() * 100 + '%';
+        p.style.animationDuration = (Math.random() * 4 + 3).toFixed(2) + 's';
+        p.style.opacity = (Math.random() * 0.6 + 0.4).toFixed(2);
+        document.body.appendChild(p);
+        setTimeout(() => p.remove(), 8000);
+      }
+
+      // Hormati prefers-reduced-motion
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!reduceMotion) {
+        setInterval(buatPartikel, 350);
+        // Buat partikel awal
+        for (let i = 0; i < 8; i++) {
+          setTimeout(buatPartikel, i * 200);
+        }
+      }
+    })();
+  </script>
+</body>
+</html>
