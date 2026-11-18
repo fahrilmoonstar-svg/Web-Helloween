@@ -3,12 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Cyber Halloween interaktif oleh Fahril Moonstar">
-  <title>Cyber Halloween — Fahril Moonstar</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+  <meta name="description" content="Rillzy Dex — Cyberpunk 2026 Liquid Glass Experience by Fahril Moonstar">
+  <title>Rillzy Dex — Cyberpunk 2026</title>
 
   <style>
     /* ===== RESET ===== */
@@ -20,24 +16,24 @@
       box-sizing: border-box;
     }
 
-    /* ===== VARIABEL ===== */
+    /* ===== VARIABEL CYBERPUNK 2026 ===== */
     :root {
-      --hitam-cyber: #070A18;
+      --hitam-cyber: #050818;
       --biru-neon: #00F0FF;
       --magenta-neon: #FF00C8;
       --ungu-neon: #7B2FFD;
       --putih-cyber: #E0F7FF;
-      --font: 'Orbitron', system-ui, sans-serif;
+      --kaca-blur: 12px;
+      --kaca-opacity: 0.22;
     }
 
-    /* ===== BASE ===== */
     html, body {
       height: 100%;
     }
 
     body {
-      font-family: var(--font);
-      background: linear-gradient(180deg, var(--hitam-cyber) 0%, #0B1430 55%, #101B40 100%);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(180deg, var(--hitam-cyber) 0%, #09132F 55%, #0F1A3D 100%);
       min-height: 100dvh;
       display: flex;
       flex-direction: column;
@@ -49,7 +45,7 @@
       position: relative;
     }
 
-    /* Efek garis scan cyberpunk */
+    /* Efek garis scan cyber */
     body::before {
       content: "";
       position: fixed;
@@ -84,58 +80,48 @@
       100% { transform: translateY(110vh); opacity: 0; }
     }
 
-    /* ===== LABA-LABA ===== */
-    .laba-laba {
-      position: fixed;
-      top: 20px;
-      left: 10%;
-      font-size: 2rem;
-      filter: drop-shadow(0 0 10px var(--magenta-neon));
-      animation: ayun 3s ease-in-out infinite;
-      z-index: 5;
-      user-select: none;
-      pointer-events: none;
-    }
-
-    @keyframes ayun {
-      0%, 100% { transform: rotate(-10deg); }
-      50%      { transform: rotate(10deg); }
-    }
-
-    /* ===== CONTAINER ===== */
+    /* ===== CONTAINER LIQUID GLASS ===== */
     .container {
       text-align: center;
       z-index: 10;
-      border: 1px solid rgba(0, 240, 255, 0.35);
-      padding: 3rem 2rem;
-      border-radius: 20px;
-      background: rgba(7, 10, 24, 0.75);
+      border: 1px solid rgba(0, 240, 255, 0.45);
+      padding: 3.2rem 2.2rem;
+      border-radius: 26px;
+      background: rgba(255, 255, 255, var(--kaca-opacity));
       box-shadow:
-        0 0 30px rgba(0, 240, 255, 0.25),
-        inset 0 0 30px rgba(255, 0, 200, 0.08);
-      backdrop-filter: blur(4px);
-      max-width: 640px;
+        0 0 40px rgba(0, 240, 255, 0.30),
+        inset 0 0 35px rgba(255, 0, 200, 0.10);
+      backdrop-filter: blur(var(--kaca-blur));
+      -webkit-backdrop-filter: blur(var(--kaca-blur));
+      max-width: 660px;
       width: 100%;
     }
 
-    .jack {
-      font-size: 5rem;
+    .logo-icon {
+      font-size: 5.2rem;
       margin-bottom: 1.5rem;
-      filter: drop-shadow(0 0 22px var(--magenta-neon));
+      filter: drop-shadow(0 0 24px var(--magenta-neon));
       user-select: none;
-      animation: glowPulse 2.5s ease-in-out infinite;
+      animation: glowPulse 2.6s ease-in-out infinite;
     }
 
     @keyframes glowPulse {
       0%, 100% { filter: drop-shadow(0 0 18px var(--magenta-neon)); }
-      50%      { filter: drop-shadow(0 0 32px var(--magenta-neon)); }
+      50%      { filter: drop-shadow(0 0 34px var(--magenta-neon)); }
     }
 
     h1 {
-      font-size: clamp(1.4rem, 5vw, 2.4rem);
-      margin-bottom: 2.5rem;
+      font-size: clamp(1.5rem, 5.5vw, 2.6rem);
+      margin-bottom: 1rem;
       line-height: 1.4;
-      text-shadow: 0 0 12px var(--biru-neon);
+      text-shadow: 0 0 14px var(--biru-neon);
+    }
+
+    .sub-title {
+      font-size: clamp(0.95rem, 2.8vw, 1.2rem);
+      color: var(--biru-neon);
+      margin-bottom: 2.5rem;
+      text-shadow: 0 0 8px var(--biru-neon);
     }
 
     /* ===== TOMBOL ===== */
@@ -149,14 +135,13 @@
     }
 
     .btn {
-      padding: 1rem 2.5rem;
+      padding: 1.1rem 2.6rem;
       border: 1px solid transparent;
-      border-radius: 12px;
+      border-radius: 14px;
       font-size: 1.1rem;
       font-weight: 700;
       cursor: pointer;
       transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
-      font-family: var(--font);
       letter-spacing: 1px;
       user-select: none;
     }
@@ -169,19 +154,19 @@
     .btn-si {
       background: linear-gradient(135deg, var(--biru-neon), var(--ungu-neon));
       color: #050815;
-      box-shadow: 0 0 20px var(--biru-neon);
+      box-shadow: 0 0 22px var(--biru-neon);
     }
 
     .btn-si:hover,
     .btn-si:focus-visible {
       transform: scale(1.08);
-      box-shadow: 0 0 35px var(--biru-neon);
+      box-shadow: 0 0 38px var(--biru-neon);
     }
 
     .btn-tidak {
       background: linear-gradient(135deg, var(--magenta-neon), #99007A);
       color: white;
-      box-shadow: 0 0 18px var(--magenta-neon);
+      box-shadow: 0 0 20px var(--magenta-neon);
       transition: transform 0.15s ease, box-shadow 0.25s ease;
       will-change: transform;
     }
@@ -206,13 +191,20 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* ===== CREDIT ===== */
+    /* ===== CREDIT & EMAIL ===== */
     .credit {
-      margin-top: 2rem;
-      font-size: 0.85rem;
+      margin-top: 2.2rem;
+      font-size: 0.88rem;
       color: var(--magenta-neon);
       text-shadow: 0 0 6px var(--magenta-neon);
-      opacity: 0.85;
+      opacity: 0.88;
+    }
+
+    .email-text {
+      margin-top: 0.6rem;
+      font-size: 0.82rem;
+      color: var(--putih-cyber);
+      opacity: 0.75;
     }
 
     /* ===== BAYANGAN BAWAH ===== */
@@ -221,22 +213,21 @@
       bottom: 0;
       left: 0;
       width: 100%;
-      height: 130px;
-      background: linear-gradient(0deg, rgba(7, 10, 24, 0.92) 0%, transparent 100%);
+      height: 140px;
+      background: linear-gradient(0deg, rgba(5, 8, 24, 0.94) 0%, transparent 100%);
       pointer-events: none;
       z-index: 2;
     }
 
     /* ===== RESPONSIF ===== */
     @media (max-width: 500px) {
-      .jack { font-size: 3.3rem; }
+      .logo-icon { font-size: 3.5rem; }
       .btn-group { gap: 1rem; }
-      .btn { padding: 0.9rem 1.6rem; font-size: 1rem; }
-      .container { padding: 2rem 1.2rem; }
-      .laba-laba { font-size: 1.6rem; left: 6%; }
+      .btn { padding: 0.9rem 1.7rem; font-size: 1rem; }
+      .container { padding: 2.1rem 1.3rem; border-radius: 22px; }
     }
 
-    /* Hormati preferensi reduce motion */
+    /* ===== REDUCE MOTION ===== */
     @media (prefers-reduced-motion: reduce) {
       *,
       *::before,
@@ -249,22 +240,22 @@
   </style>
 </head>
 <body>
-  <div class="laba-laba" aria-hidden="true">🕷️</div>
-
   <main class="container">
-    <div class="jack" aria-hidden="true">🎃</div>
-    <h1>Mau merayakan Cyber Halloween bersamaku? 🕷️</h1>
+    <div class="logo-icon" aria-hidden="true">⚡</div>
+    <h1>Rillzy Dex</h1>
+    <p class="sub-title">Cyberpunk 2026 • Liquid Glass Smooth Experience</p>
 
     <div class="btn-group">
-      <button class="btn btn-si" id="btnSi" type="button">💠 Si</button>
-      <button class="btn btn-tidak" id="btnTidak" type="button">💜 Tidak</button>
+      <button class="btn btn-si" id="btnSi" type="button">💠 Masuk Dunia Cyber</button>
+      <button class="btn btn-tidak" id="btnTidak" type="button">💜 Nanti Dulu</button>
     </div>
 
     <div class="pesan" id="pesanBox" role="status" aria-live="polite">
-      🎉 Yey! Selamat Cyber Halloween! Kita akan bersenang-senang di dunia cyber malam ini! 🕷️🎃
+      🎉 Selamat datang di Rillzy Dex! Rasakan pengalaman cyberpunk 2026 dengan tampilan liquid glass yang halus!
     </div>
 
-    <p class="credit">Developed by Fahril Moonstar ✦ Cyberpunk 2026</p>
+    <p class="credit">Developed by Fahril Moonstar ✦ Rillzy Dex — Cyberpunk 2026</p>
+    <p class="email-text">Kontak: moonstarstore001@gmail.com</p>
   </main>
 
   <div class="bayangan" aria-hidden="true"></div>
@@ -277,40 +268,34 @@
       const btnTidak = document.getElementById('btnTidak');
       const pesanBox = document.getElementById('pesanBox');
 
-      // ===== Tombol "Tidak" kabur saat kursor mendekat =====
+      // Tombol "Nanti Dulu" kabur
       let posisiX = 0;
       let posisiY = 0;
 
       function kaburTidak() {
-        const batas = 220;
-        // Pastikan tidak terlalu jauh dari posisi awal
+        const batas = 230;
         posisiX = (Math.random() - 0.5) * batas;
-        posisiY = (Math.random() - 0.5) * 160;
+        posisiY = (Math.random() - 0.5) * 170;
         btnTidak.style.transform = `translate(${posisiX}px, ${posisiY}px)`;
       }
 
-      // Desktop: kabur saat hover
       btnTidak.addEventListener('mouseenter', kaburTidak);
-
-      // Mobile: kabur saat disentuh
       btnTidak.addEventListener('touchstart', (e) => {
         e.preventDefault();
         kaburTidak();
       }, { passive: false });
 
-      // Jika tetap diklik (misal lewat keyboard), beri respon lucu
       btnTidak.addEventListener('click', () => {
-        pesanBox.textContent = '💜 Tidak apa-apa, tapi Cyber Halloween tetap seru kalau kamu ikut! 🕷️';
+        pesanBox.textContent = '💜 Baiklah, kapanpun kamu siap, Rillzy Dex selalu menantimu! ⚡';
         pesanBox.classList.add('tampil');
       });
 
-      // ===== Tombol "Si" =====
       btnSi.addEventListener('click', () => {
-        pesanBox.textContent = '🎉 Yey! Selamat Cyber Halloween! Kita akan bersenang-senang di dunia cyber malam ini! 🕷️🎃';
+        pesanBox.textContent = '🎉 Selamat datang di Rillzy Dex! Rasakan pengalaman cyberpunk 2026 dengan tampilan liquid glass yang halus!';
         pesanBox.classList.add('tampil');
       });
 
-      // ===== Partikel cyber =====
+      // Partikel cyber
       function buatPartikel() {
         const p = document.createElement('div');
         p.classList.add('partikel');
@@ -321,11 +306,9 @@
         setTimeout(() => p.remove(), 8000);
       }
 
-      // Hormati prefers-reduced-motion
       const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       if (!reduceMotion) {
         setInterval(buatPartikel, 350);
-        // Buat partikel awal
         for (let i = 0; i < 8; i++) {
           setTimeout(buatPartikel, i * 200);
         }
